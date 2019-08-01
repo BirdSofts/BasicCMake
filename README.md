@@ -36,7 +36,7 @@ Follow the instruction described in CMake_Notes.txt
 # Contribute
 I appreciate any contribution from anyone, who sees that the project deserves his precious time.
 
-#References
+# References
 <table>
 <tr>
 <td><a href="https://cmake.org/cmake/help/latest/">CMake Documentation</a></td>
