@@ -3,7 +3,7 @@
 #/
 #/ </summary>
 #/ <created>ʆϒʅ,30.03.2019</created>
-#/ <changed>ʆϒʅ,14.10.2019</changed>
+#/ <changed>ʆϒʅ,06.11.2021</changed>
 # *******************************************************************************************
 
 #-----------------------------------------------------------------------------------------------------------
@@ -81,8 +81,8 @@ set(PROJECT_NAME ${TARGET_NAME})
 # if not present at top, CMake adds an implicit call to this function.
 project(${PROJECT_NAME}
   VERSION 0.1.0.0 #[Version <major>[.<minor>[.<patch>[.<tweak>]]]]
-  DESCRIPTION "CMake notes and examples" #[]
-  HOMEPAGE_URL "https://github.com/BirdSofts/LearningCMake" #[]
+  DESCRIPTION "CMake Notes and Examples" #[]
+  HOMEPAGE_URL "https://github.com/BirdSofts/CMakeIntroduction" #[]
   LANGUAGES CXX #[]
   )
 
@@ -91,7 +91,7 @@ project(${PROJECT_NAME}
 set(APPLICATION_NAME ${TARGET_NAME})
 set(APPLICATION_VERSION ${VERSION})
 set(APPLICATION_ORGANIZATION "BirdSofts")
-set(APPLICATION_ORGANIZATION_DOMAIN "https://github.com/BirdSofts/")
+set(APPLICATION_ORGANIZATION_DOMAIN "https://github.com/BirdSofts/CmakeIntroduction")
 configure_file(src/appinfo.h.input appinfo.h -parameters-)
 
 # resources
@@ -106,14 +106,14 @@ set(FILE_VERSION_PATCH 0)
 set(FILE_VERSION_BUILD 1)
 set(PRODUCT_COMMENTS "")
 set(PRODUCT_COMPANY_NAME "BirdSofts")
-set(PRODUCT_FILE_DESCRIPTION "Learning CMake examples")
-set(PRODUCT_INTERNAL_NAME "LearningCMake")
+set(PRODUCT_FILE_DESCRIPTION "CMake Notes and Examples")
+set(PRODUCT_INTERNAL_NAME "CMakeIntroduction")
 set(PRODUCT_COMPANY_COPYRIGHT "")
-set(PRODUCT_ORIGINAL_FILENAME "LearningCMake.exe")
-set(PRODUCT_BUNDLE "LearningCMake")
+set(PRODUCT_ORIGINAL_FILENAME "CMakeIntroduction.exe")
+set(PRODUCT_BUNDLE "CMakeIntroduction")
 
 configure_file(
-  ${ROOT}/LearningCMake.rc
+  ${ROOT}/CMakeIntroduction.rc
   ${CMAKE_CURRENT_SOURCE_DIR}/${TARGET_NAME}.rc
   COPYONLY)
 

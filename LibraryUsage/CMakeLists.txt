@@ -3,7 +3,7 @@
 #/
 #/ </summary>
 #/ <created>ʆϒʅ,04.04.2019</created>
-#/ <changed>ʆϒʅ,14.10.2019</changed>
+#/ <changed>ʆϒʅ,06.11.2021</changed>
 # ********************************************************************************
 
 cmake_minimum_required (VERSION 3.8 FATAL_ERROR)
@@ -16,11 +16,11 @@ set(PROJECT_NAME ${TARGET_NAME})
 project(${PROJECT_NAME}
   VERSION 0.1.0.0
   DESCRIPTION "CMake notes and examples"
-  HOMEPAGE_URL "https://github.com/BirdSofts/LearningCMake"
+  HOMEPAGE_URL "https://github.com/BirdSofts/CMakeIntroduction"
   LANGUAGES CXX
   )
 
-set(ROOT $ENV{UserProfile}/Source/Repos/LearningCMake)
+set(ROOT $ENV{UserProfile}/Source/Repos/BirdSofts/CMakeIntroduction)
 
 if(${LINK_SHARED_LIB} MATCHES ON)
   # dynamic library linkage
