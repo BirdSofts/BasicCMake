@@ -1,9 +1,10 @@
-﻿# *******************************************************************************************
+﻿
+# *******************************************************************************************
 #/ <summary>
 #/
 #/ </summary>
 #/ <created>ʆϒʅ,30.03.2019</created>
-#/ <changed>ʆϒʅ,06.11.2021</changed>
+#/ <changed>ʆϒʅ,06.12.2021</changed>
 # *******************************************************************************************
 
 #-----------------------------------------------------------------------------------------------------------
@@ -264,7 +265,7 @@ generate_export_header(${TARGET_NAME}
 # platform architecture (different architecture inclusion)
 # for detecting x86 use 4 as size
 if(${CMAKE_SIZEOF_VOID_P} EQUAL "8")
-  set(PROJECTNAME_ARCHITECTURE "x64")
+  set(CMAKE_GENERATOR_PLATFORM "x64")
 else()
   set(PROJECTNAME_ARCHITECTURE "x86")
 endif()
@@ -510,10 +511,11 @@ source_group(continuous_integration REGULAR_EXPRESSION .*[.]yml)
 #------------------- Commands -------------------
 #
 #------------------- Directory -------------------
-# directory listing                   tree
-# create directory                    mkdir <dir> (not portable)
-#                                     cmake -E make_directory
-# moving between directories          cd <dir> cd.. cd\
+# directory listing						tree
+# create directory						mkdir directory-name (not portable)
+# 										md directory-name (not portable)
+# 										cmake -E make_directory (cmake -E help for more portable commands)
+# change directory						cd <dir> cd.. cd\ chdir <dir> (not portable)
 
 
 #------------------- Build -------------------
@@ -521,41 +523,27 @@ source_group(continuous_integration REGULAR_EXPRESSION .*[.]yml)
 
 #------- Best practice:
 # current directory: project root directory
-# change directory                    chdir build-path
-# build in directory                  cmake [-A Win32, x64, ARM, ARM64] source-path
-# source directory example            cmake ..\
+# change directory						chdir build-path
+# build from build directory			cmake ..\
+
+# build in directory with platform		cmake -G "Visual Studio 16 2019" -A Win32, x64, ARM, ARM64 source-path -B "build-path"
+# example								cmake -G "Visual Studio 16 2019" -A x64 ..\ -B "build64"
 
 # using toolchain provided by vcpkg: (note: remember cleaning the build directory)
-#     cmake -A x64 ..\ "-DCMAKE_TOOLCHAIN_FILE=C:/src/vcpkg/scripts/buildsystems/vcpkg.cmake"
+# 										cmake -A x64 ..\ "-DCMAKE_TOOLCHAIN_FILE=C:/src/vcpkg/scripts/buildsystems/vcpkg.cmake"
 
-# build project                       cmake --build [--clean-first] <dir>
+# build project to current				cmake --build .
+# build project							cmake --build [--clean-first] <dir>
+# build to directory with config		cmake --build build-path --config debug, release
 #-------
 
-# build (elapsed time)                cmake -E time cmake <dir>
+# build (elapsed time)					cmake -E time cmake <dir>
 
-# example of a complex command:
-#     cmake --build build --target ProjectName --config Release --clean-first
-
-# Additionally:
-# build to current                    cmake <source-path>
-# Notes:
-# Current: Probably build folder.
-# Source folder must be defined in CMake_Notes.txt (..\src\)
-# build to current                    cmake .
-#                                     cmake --build .
-# build to path                       cmake <existing-build-path>
-# Note: Settings must contain the path to source.
-# didn't work :)                      cmake -S <src-path> -B <build-path>
-# probably needs some creepy settings to be set! :)
-
-# further information:
-# https://cmake.org/cmake/help/v3.14/manual/cmake.1.html
-
+# example of a complex command:			cmake --build build --target ProjectName --config Release --clean-first
 
 #------------------- Useful -------------------
-# present CMake version               cmake -version
-# processing script (.cmake files)    cmake -P file.cmake
-
+# present CMake version					cmake -version
+# processing script (.cmake files)		cmake -P file.cmake
 
 
 #-----------------------------------------------------------------------------------------------------------
