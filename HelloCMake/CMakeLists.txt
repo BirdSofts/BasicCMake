@@ -3,7 +3,7 @@
 #/
 #/ </summary>
 #/ <created>ʆϒʅ,03.04.2019</created>
-#/ <changed>ʆϒʅ,05.11.2021</changed>
+#/ <changed>ʆϒʅ,05.03.2022</changed>
 # ********************************************************************************
 
 cmake_minimum_required (VERSION 3.8 FATAL_ERROR)
@@ -13,7 +13,7 @@ set(PROJECT_NAME "HelloCMake")
 project(${PROJECT_NAME}
   VERSION 0.1.0.0
   DESCRIPTION "CMake notes and examples"
-  HOMEPAGE_URL "https://github.com/BirdSofts/CMakeIntroduction"
+  HOMEPAGE_URL "https://github.com/s-mehrdad/CMakeIntroduction"
   LANGUAGES CXX
   )
 

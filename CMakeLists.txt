@@ -1,10 +1,10 @@
 ﻿
 # *******************************************************************************************
 #/ <summary>
-#/
+#/ CMake quick guide
 #/ </summary>
 #/ <created>ʆϒʅ,30.03.2019</created>
-#/ <changed>ʆϒʅ,06.12.2021</changed>
+#/ <changed>ʆϒʅ,05.03.2022</changed>
 # *******************************************************************************************
 
 #-----------------------------------------------------------------------------------------------------------
@@ -83,7 +83,7 @@ set(PROJECT_NAME ${TARGET_NAME})
 project(${PROJECT_NAME}
   VERSION 0.1.0.0 #[Version <major>[.<minor>[.<patch>[.<tweak>]]]]
   DESCRIPTION "CMake Notes and Examples" #[]
-  HOMEPAGE_URL "https://github.com/BirdSofts/CMakeIntroduction" #[]
+  HOMEPAGE_URL "https://github.com/s-mehrdad/CMakeIntroduction" #[]
   LANGUAGES CXX #[]
   )
 
@@ -92,7 +92,7 @@ project(${PROJECT_NAME}
 set(APPLICATION_NAME ${TARGET_NAME})
 set(APPLICATION_VERSION ${VERSION})
 set(APPLICATION_ORGANIZATION "BirdSofts")
-set(APPLICATION_ORGANIZATION_DOMAIN "https://github.com/BirdSofts/CmakeIntroduction")
+set(APPLICATION_ORGANIZATION_DOMAIN "https://github.com/s-mehrdad/CmakeIntroduction")
 configure_file(src/appinfo.h.input appinfo.h -parameters-)
 
 # resources
@@ -392,7 +392,7 @@ foreach(file ${TESTS_FILES})
   project(${PROJECT_NAME}
     VERSION 0.1.0.0
     DESCRIPTION "Google Tests of ..."
-    HOMEPAGE_URL "https://github.com/BirdSofts"
+    HOMEPAGE_URL "https://github.com/s-mehrdad"
     LANGUAGES CXX
     )
 
@@ -435,7 +435,7 @@ set(PROJECT_NAME ${TARGET_NAME})
 project(${PROJECT_NAME}
   VERSION 0.1.0.0
   DESCRIPTION "Google Tests of ..."
-  HOMEPAGE_URL "https://github.com/BirdSofts"
+  HOMEPAGE_URL "https://github.com/s-mehrdad"
   LANGUAGES CXX
   )
 
@@ -469,6 +469,12 @@ gtest_discover_tests(${TARGET_NAME} NO_PRETTY_TYPES NO_PRETTY_VALUES)
 install(TARGETS ${TARGET_NAME} DESTINATION _Path)
 
 INCLUDE(InstallRequiredSystemLibraries)
+
+# install files
+install(FILES fileName #${CMAKE_CURRENT_SOURCE_DIR}
+  DESTINATION _Path #${CMAKE_CURRENT_BINARY_DIR}
+  PERMISSION OWNER_READ
+  )
 
 
 #------------------- best Practices -------------------

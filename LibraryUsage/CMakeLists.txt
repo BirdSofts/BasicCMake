@@ -3,24 +3,24 @@
 #/
 #/ </summary>
 #/ <created>ʆϒʅ,04.04.2019</created>
-#/ <changed>ʆϒʅ,06.11.2021</changed>
+#/ <changed>ʆϒʅ,05.03.2022</changed>
 # ********************************************************************************
 
 cmake_minimum_required (VERSION 3.8 FATAL_ERROR)
 
 # option: link to the shared version
-set(LINK_SHARED_LIB ON)
+set(LINK_SHARED_LIB OFF)
 
 set(TARGET_NAME LibraryUsage)
 set(PROJECT_NAME ${TARGET_NAME})
 project(${PROJECT_NAME}
   VERSION 0.1.0.0
   DESCRIPTION "CMake notes and examples"
-  HOMEPAGE_URL "https://github.com/BirdSofts/CMakeIntroduction"
+  HOMEPAGE_URL "https://github.com/s-mehrdad/CMakeIntroduction"
   LANGUAGES CXX
   )
 
-set(ROOT $ENV{UserProfile}/Source/Repos/BirdSofts/CMakeIntroduction)
+set(ROOT $ENV{UserProfile}/Source/Repos/CMakeIntroduction)
 
 if(${LINK_SHARED_LIB} MATCHES ON)
   # dynamic library linkage
@@ -41,11 +41,14 @@ if(${LINK_SHARED_LIB} MATCHES ON)
   # pre and post build event
   # copy library into target directory
   # must follow a generation event
-  add_custom_command(TARGET ${TARGET_NAME} PRE_BUILD
-    COMMAND cmake -E copy_if_different
-    ${ROOT}/StaticAndSharedLibrary/build/debug/StaticAndSharedLibrary.dll
-    $<TARGET_FILE_DIR:${TARGET_NAME}>
-    )
+#  add_custom_command(TARGET ${TARGET_NAME} PRE_BUILD
+#    COMMAND cmake -E copy_if_different
+#    ${ROOT}/StaticAndSharedLibrary/build/debug/StaticAndSharedLibrary.dll
+#    $<TARGET_FILE_DIR:${TARGET_NAME}>
+#    )
+  install (FILES ${ROOT}/StaticAndSharedLibrary/build/debug/StaticAndSharedLibrary.dll
+    DESTINATION ${CMAKE_CURRENT_BINARY_DIR}
+)
 endif()
 
 target_link_libraries(${TARGET_NAME} ${PROJECT_LINK_LIBS})
