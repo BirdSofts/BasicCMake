@@ -14,10 +14,7 @@ Clone the repository.
 
 
 # Build and Test
-This project have been build on Windows platform. In other platforms you are on you own.
-Follow the instruction described in CMake_Notes.txt
-
-Compile using CMake.
+If you are a beginner, for learning follow instructions described in CMake_Notes.txt so being able to build using CMake.
 
 <table>
 <tr>

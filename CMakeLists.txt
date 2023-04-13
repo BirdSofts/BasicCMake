@@ -1,10 +1,12 @@
 ﻿
 # *******************************************************************************************
 #/ <summary>
-#/ CMake quick guide
+#/ CmakeLists.txt
+#/ CmakeIntroduction aka CMake quick guide
+#/ created by Mehrdad Soleimanimajd on 30.03.2019
 #/ </summary>
-#/ <created>ʆϒʅ,30.03.2019</created>
-#/ <changed>ʆϒʅ,05.03.2022</changed>
+#/ <created>ʆϒʅ, 30.03.2019</created>
+#/ <changed>ʆϒʅ, 14.03.2023</changed>
 # *******************************************************************************************
 
 #-----------------------------------------------------------------------------------------------------------
@@ -187,6 +189,9 @@ target_compile_definitions(${TARGET_NAME}
 # add_definitions() command is to be avoided
 # adding definitions to CMAKE_<LANG>_FLAGS is to be avoided
 
+set (CMAKE_C_COMPILER GCC) #Clang, ...
+set (CMAKE_CXX_COMPILER G++) #Clang++, ...
+
 # make files with the C++14 standard enabled in source code are compilable (some compilers needs)
 set(CMAKE_CXX_STANDARD_REQUIRED on)
 set(CMAKE_CXX_STANDARD 11, 14, 17)
@@ -359,13 +364,13 @@ target_include_directories(${TARGET_NAME} BEFORE
 # INTERFACE: useable for targets with linkage against it
 
 # pre and post build event:
-# copy library into target directory
+# copy library into target directory and is noted in cross-platform synopsis
 # must follow a generation event
 add_custom_command(TARGET ${TARGET_NAME} PRE_BUILD
-  COMMAND cmake -E copy_if_different # or additionally copy_directory
+  COMMAND ${CMAKE_COMMAND} -E copy_if_different # or additionally copy_directory
   $ENV{UserProfile}.../Library.dll
   $<TARGET_FILE_DIR:${TARGET_NAME}>
-  )
+  VERBATIM)
 
 
 #------------------- Performing supported tests -------------------

@@ -1,15 +1,18 @@
-﻿# ********************************************************************************
-#/ <summary>
-#/
-#/ </summary>
-#/ <created>ʆϒʅ,03.04.2019</created>
-#/ <changed>ʆϒʅ,05.03.2021</changed>
+﻿
+# ********************************************************************************
+# / <summary>
+# / CMakelists.txt
+# / CMakeIntroduction
+# / created by Mehrdad Soleimanimajd on 03.04.2019
+# / </summary>
+# / <created>ʆϒʅ, 03.04.2019</created>
+# / <changed>ʆϒʅ, 13.04.2023</changed>
 # ********************************************************************************
 
-cmake_minimum_required (VERSION 3.8 FATAL_ERROR)
+cmake_minimum_required(VERSION 3.8 FATAL_ERROR)
 
 # option: build a shared version
-set(BUILD_SHARED_LIB ON)
+set(BUILD_SHARED_LIB OFF)
 
 # project settings
 set(TARGET_NAME StaticAndSharedLibrary)
@@ -19,22 +22,32 @@ project(${PROJECT_NAME}
   DESCRIPTION "CMake notes and examples"
   HOMEPAGE_URL "https://github.com/s-mehrdad/CMakeIntroduction"
   LANGUAGES CXX
-  )
+)
+
+set(CMAKE_INCLUDE_CURRENT_DIR ON)
+
+# TODO:
+# how to include header files from here
+# set(CMAKE_INCLUDE_DIRECTORIES_BEFORE ON)
+# include_directories(source)
+# target_include_directories(${TARGET_NAME} BEFORE
+# PUBLIC source)
 
 # source files
 list(APPEND HEADER_FILES
   source/StaticAndSharedLibrary.h
-  )
+)
 list(APPEND SOURCE_FILES
   source/StaticAndSharedLibrary.cpp
-  )
+)
+
 if(WIN32)
   list(APPEND SOURCE_FILES ${HEADER_FILES})
 endif()
 
 # generate the dynamic library
 if(${BUILD_SHARED_LIB} MATCHES ON)
-  add_library (${TARGET_NAME} SHARED ${SOURCE_FILES})
+  add_library(${TARGET_NAME} SHARED ${SOURCE_FILES})
 
   # generate export header automatically
   include(GenerateExportHeader)
@@ -43,7 +56,7 @@ if(${BUILD_SHARED_LIB} MATCHES ON)
     EXPORT_MACRO_NAME ${TARGET_NAME}_EXPORTS
     EXPORT_FILE_NAME ${TARGET_NAME}_EXPORTS.h
     STATIC_DEFINE ${TARGET_NAME}_EXPORTS_BUILD_AS_STATIC
-    )
+  )
 else()
-  add_library (${TARGET_NAME} STATIC ${SOURCE_FILES})
+  add_library(${TARGET_NAME} STATIC ${SOURCE_FILES})
 endif()
