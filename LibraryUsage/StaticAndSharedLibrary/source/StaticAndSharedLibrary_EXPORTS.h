@@ -1,13 +1,13 @@
 ﻿
-// ********************************************************************************
+// ===========================================================================
 /// <summary>
 /// StaticAndSharedLibrary_EXPORTS.h
 /// CMakeIntroduction
 /// created by Mehrdad Soleimanimajd on 04.04.2019
 /// </summary>
 /// <created>ʆϒʅ, 04.04.2019</created>
-/// <changed>ʆϒʅ, 13.04.2023</changed>
-// ********************************************************************************
+/// <changed>ʆϒʅ, 29.06.2023</changed>
+// ===========================================================================
 
 #ifndef STATICANDSHAREDLIBRARY_EXPORTS_H
 #define STATICANDSHAREDLIBRARY_EXPORTS_H

@@ -1,13 +1,13 @@
 ﻿
-// ********************************************************************************
+// ===========================================================================
 /// <summary>
 /// LibraryUsage.cpp
 /// CMakeIntroduction
 /// created by Mehrdad Soleimanimajd on 04.04.2019
 /// </summary>
 /// <created>ʆϒʅ, 04.04.2019</created>
-/// <changed>ʆϒʅ, 13.04.2023</changed>
-// ********************************************************************************
+/// <changed>ʆϒʅ, 29.06.2023</changed>
+// ===========================================================================
 
 #include "../StaticAndSharedLibrary/source/StaticAndSharedLibrary.h"
 // TODO include
@@ -16,7 +16,7 @@
 
 int main ()
 {
-  Student one ( "John" );
-  one.Print ();
-  return 0;
+    Student one ("John");
+    one.Print ();
+    return 0;
 }

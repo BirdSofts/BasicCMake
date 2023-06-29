@@ -1,13 +1,13 @@
 ﻿
-// ********************************************************************************
+// ===========================================================================
 /// <summary>
 /// StaticAndSharedLibrary.h
 /// CMakeIntroduction
 /// created by Mehrdad Soleimanimajd on 03.04.2019
 /// </summary>
 /// <created>ʆϒʅ, 03.04.2019</created>
-/// <changed>ʆϒʅ, 13.04.2023</changed>
-// ********************************************************************************
+/// <changed>ʆϒʅ, 29.06.2023</changed>
+// ===========================================================================
 
 #ifndef STATICANDSHAREDLIBRARY_H
 #define STATICANDSHAREDLIBRARY_H
@@ -35,11 +35,11 @@
 class LIBRARY_EXPORT Student
 {
 private:
-  std::string firstName;
+    std::string firstName;
 public:
-  Student ( std::string );
-  ~Student ();
-  void Print ( void );
+    Student (std::string);
+    ~Student ();
+    void Print (void);
 };
 
 
